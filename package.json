@@ -1,0 +1,71 @@
+{
+  "name": "fenghuang-orm",
+  "version": "0.0.1",
+  "description": "Generic ORM Service for the Fenghuang platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "integration-test": "mocha --opts integration-test/mocha.opts",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint",
+    "lint-staged": "lint-staged"
+  },
+  "nyc": {
+    "all": true,
+    "cache": true,
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "include": [
+      "lib/**/*",
+      "index.js"
+    ],
+    "exclude": [
+      "lib/console.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fenghuang-js/fenghuang-orm.git"
+  },
+  "keywords": [
+    "fenghuang"
+  ],
+  "author": "Michaël St-Georges <m.stgeorges@gmail.com>",
+  "license": "Beerware",
+  "bugs": {
+    "url": "https://github.com/fenghuang-js/fenghuang-orm/issues"
+  },
+  "homepage": "https://github.com/fenghuang-js/fenghuang-orm#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-json": "^1.2.0",
+    "lint-staged": "^7.1.0",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.3",
+    "pre-commit": "^1.2.2",
+    "proxyquire": "^2.0.1",
+    "sinon": "^5.0.7",
+    "sinon-chai": "^3.0.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "pre-commit": [
+    "lint-staged"
+  ]
+}
